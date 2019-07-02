@@ -6,4 +6,4 @@ class CreatTermin(forms.ModelForm):
 
     class Meta:
         model = Termin
-        fields = ['status','price', 'date', 'mobile_number']
+        fields = ['status', 'price', 'date', 'mobile_number']

@@ -35,22 +35,10 @@ def termin_detail_view(request):
     })
 
 def termin_delete(request, pk):
-    termin = get_object_or_404(Termin, pk=pk)
-    if request.method == 'POST':
-        termin.delete()
-        return redirect(request, 'users/terminy.html')
-    context = {
-        't': termin
-    }
-    return redirect(request, 'users/terminy.html', context)
-
-# def termin_delete(request, pk):
-#     try:
-#         termin = Termin.objects.get(pk=pk).delete()
-#     except Termin.DoesNotExist:
-#         print("no such object")
-#         return redirect('users/terminy.html')
-#     return redirect(request, 'users/terminy.html')
+    termin = Termin.objects.get(pk=pk).delete()
+    return render(request, 'users/terminy.html',  {
+        'terminy': Termin.objects.filter(author=request.user)
+    })
 
 def termin_create_view(request):
     form_class = CreatTermin
