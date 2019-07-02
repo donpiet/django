@@ -1,14 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    {{ object.date }}
-<!--    author = models.ForeignKey(User, on_delete=models.CASCADE)-->
-<!--    mobile_number = models.CharField(max_length=9)-->
-
-
-</body>
-</html>
+{% extends "users/base.html" %}
+{% block content %}
+        <h1>Usuwanie terminu</h1>
+        <form method="post">
+            <button type="submit">Zmien</button>
+        </form>
+        <button href="terminy.html" type="submit">Cancle</button>
+{% endblock %}

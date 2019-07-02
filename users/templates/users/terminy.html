@@ -1,0 +1,45 @@
+{% extends "users/base.html" %}
+{% block content %}
+    {% for t in terminy %}
+<!--        <div>-->
+<!--            <h3>data: {{ t.date }}</h3>-->
+
+<!--        </div>-->
+<!--        <div>-->
+<!--            <h3>użytkownik: {{ t.author }}</h3>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <h3>status: {{ t.status }}</h3>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <h3>numer: {{ t.mobile_number }}</h3>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <h3>cena: {{ t.price }}</h3>-->
+<!--        </div>-->
+        <table class="table">
+            <thead>
+              <tr>
+                <th>użytkownik {{ t.author }}
+                    <a href="{% url 'termin-update' t.id %}">Modyfikuj</a>
+                    <a href="{% url 'termin-delete' t.id %}">Usuń</a>
+                </th>
+              </tr>
+            </thead>
+            <thead>
+              <tr>
+                <th>data</th>
+                <th>status</th>
+                <th>numer</th>
+                <th>cena</th>
+              </tr>
+              <tr>
+                <td>{{ t.date }}</td>
+                <td>{{ t.status }}</td>
+                <td>{{ t.mobile_number }}</td>
+                <td>{{ t.price }}</td>
+              </tr>
+            </thead>
+        </table>
+    {% endfor %}
+{% endblock %}

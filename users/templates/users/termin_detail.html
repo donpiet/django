@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "users/base.html" %}
+{% block content %}
+
             {% for t in termin %}
                 <div>
                     <h3>data: {{ t.date }}</h3>
@@ -23,5 +19,4 @@
                 </div>
             {% endfor %}
 
-</body>
-</html>
+{% endblock %}

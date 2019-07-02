@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
+{% extends "users/base.html" %}
+{% block content %}
     <h1>Update termin</h1>
 
 
@@ -13,7 +7,5 @@
             {% csrf_token %}
             {{ form }}
             <button type="submit">Zmien</button>
-        </form>
-
-</body>
-</html>
+            </form>
+{% endblock %}
