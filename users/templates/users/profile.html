@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "users/base.html" %}
+{% block content %}
 
-    {{ user.username }}
+    <h1>Hello  {{ user.username }} </h1>
 
-</body>
-</html>
+    <a href="{% url 'terminy' %}">Dodaj Termin</a><br>
+    <a href="{% url 'termin' %}">Pokaż Terminy</a>
+
+{% endblock %}
+

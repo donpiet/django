@@ -1,5 +1,12 @@
 {% extends "users/base.html" %}
 {% block content %}
+<div>
+    <h1>Terminy</h1>
+    <a href="{% url 'terminy' %}">Dodaj Termin</a>
+    <a href="{% url 'profile' %}">Pokaż Profil</a>
+    <a href="{% url 'logout' %}">Wyloguj</a>
+
+</div>
     {% for t in terminy %}
 <!--        <div>-->
 <!--            <h3>data: {{ t.date }}</h3>-->
