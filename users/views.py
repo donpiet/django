@@ -59,19 +59,44 @@ def termin_create_view(request):
     })
 
 
-def termin_modife_view(request, pk):
-    
+def termin_update_view(request, pk):
+    try:
+        termin = Termin.objects.get(pk=pk, author=request.user)
+    except Termin.DoesNotExist:
+        print("no such object")
+        return redirect('termin')
+    return render(request, 'users/update_termin.html', {
+        't': termin
+    })
 
-class TerminListUpdate(LoginRequiredMixin, CreateView):
-    model = Termin
-    fields = ['status', 'mobile_number', 'price']
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
+# class TerminListUpdate(LoginRequiredMixin, CreateView):
+#     model = Termin
+#     fields = ['status', 'mobile_number', 'price']
+#
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
+#         return super().form_valid(form)
 
 def show_termin(request):
     content = {
         'termin': Termin.objects.all()
     }
     return render(request, 'users/termin.html', content)
+#
+# def termin_update_view(request, pk):
+#     form_class = CreatTermin
+#     form = form_class(request.POST or None)
+#     if request.method == 'POST':
+#         form = CreatTermin(request.POST)
+#         if form.is_valid():
+#             termin = Termin(
+#                 author=request.user,
+#                 mobile_number=form.get['mobile_number'],
+#                 status=form.get['status'],
+#                 price=form.GET['price']
+#             )
+#             return redirect('profile')
+#     return render(request, 'users/update_termin.html', {
+#         'form': form
+#     })
