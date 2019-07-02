@@ -6,6 +6,7 @@ from .models import Termin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .forms import CreatTermin
+from django.shortcuts import get_object_or_404
 
 
 def register_view(request):
@@ -69,6 +70,20 @@ def termin_update_view(request, pk):
         't': termin
     })
 
+def termin_edit(request, pk):
+    termin = get_object_or_404(Termin, pk=pk)
+    if request.method == "POST":
+        form = CreatTermin(request.POST, instance=termin)
+        if form.is_valid():
+                author=request.user,
+                mobile_number=form.cleaned_data['mobile_number'],
+                status=form.cleaned_data['status'],
+                price=form.cleaned_data['price'],
+                termin.save(),
+                return redirect('terminy')
+    else:
+        form = CreatTermin(instance=termin)
+    return render(request, 'users/update_termin.html', {'form': form})
 
 # class TerminListUpdate(LoginRequiredMixin, CreateView):
 #     model = Termin
