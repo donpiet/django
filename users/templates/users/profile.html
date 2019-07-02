@@ -3,8 +3,9 @@
 
     <h1>Hello  {{ user.username }} </h1>
 
-    <a href="{% url 'terminy' %}">Dodaj Termin</a><br>
-    <a href="{% url 'termin' %}">Pokaż Terminy</a>
+    <a class="btn btn-primary" href="{% url 'terminy' %}">Dodaj Termin</a>
+    <br><br>
+    <a class="btn btn-primary" href="{% url 'termin' %}">Pokaż Terminy</a>
 
 {% endblock %}
 

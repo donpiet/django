@@ -2,9 +2,9 @@
 {% block content %}
 <div>
     <h1>Terminy</h1>
-    <a href="{% url 'terminy' %}">Dodaj Termin</a>
-    <a href="{% url 'profile' %}">Pokaż Profil</a>
-    <a href="{% url 'logout' %}">Wyloguj</a>
+    <a class="btn btn-primary" href="{% url 'terminy' %}">Dodaj Termin</a>
+    <a class="btn btn-primary" href="{% url 'profile' %}">Pokaż Profil</a>
+    <a class="btn btn-primary" href="{% url 'logout' %}">Wyloguj</a>
 
 </div>
     {% for t in terminy %}
@@ -28,8 +28,8 @@
             <thead>
               <tr>
                 <th>użytkownik {{ t.author }}
-                    <a href="{% url 'termin-update' t.id %}">Modyfikuj</a>
-                    <a href="{% url 'termin-delete' t.id %}">Usuń</a>
+                    <a class="btn btn-success" href="{% url 'termin-update' t.id %}">Modyfikuj</a>
+                    <a class="btn btn-danger" href="{% url 'termin-delete' t.id %}">Usuń</a>
                 </th>
               </tr>
             </thead>
